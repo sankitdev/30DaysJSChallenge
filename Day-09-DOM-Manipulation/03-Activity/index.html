@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 3:Removing Elements</title>
+</head>
+
+<body>
+    <div class="remove">I will be removed</div>
+    <ul>
+        <li>First Child</li>
+        <li>Second Child</li>
+        <li>Last Child</li>
+    </ul>
+    <script>
+        //Task 5: Select and HTML element and remove it from the DOM
+        const remove = document.querySelector(".remove")
+        remove.remove()
+
+        //Task 6: Remove the last child of a specific HTML element
+        const lastChild = document.querySelector("ul li:last-child")
+        if (lastChild) {
+            lastChild.remove();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 4: Modifying Attributes and Classes</title>
+    <style>
+        .active {
+            width: 500px;
+            height: 500px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="no value" alt="">
+    <script>
+        //Task 7:Select an HTML element and change one of its attributes (e.g., src of an img tag)
+        const img = document.querySelector("img")
+
+        img.src = "https://images.unsplash.com/photo-1721809002287-177307306ce6?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+
+        //Task 8:Add and remove a CSS class to/from an HTML element
+        img.classList.remove("active") //removing
+        img.classList.add("active") //Adding
+    </script>
+</body>
+
+</html>

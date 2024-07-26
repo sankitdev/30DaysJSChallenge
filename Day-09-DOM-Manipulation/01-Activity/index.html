@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 1:Selecting and Manipulating Elements</title>
+</head>
+
+<body>
+    <div id="text">Hello There</div>
+    <div class="bgChange">BackGround Color Change</div>
+    <script>
+        //Task 1: Select and HTML element by its ID and change its text content
+        const text = document.getElementById("text");
+        text.textContent = "I am changed now"
+        //Task 2: Select and HTML element by its class and change its background color.
+        const selecByClass = document.querySelector(".bgChange")
+        selecByClass.style.backgroundColor = "green"
+        selecByClass.style.color = "white"
+    </script>
+</body>
+
+</html>

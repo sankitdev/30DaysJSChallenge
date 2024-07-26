@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+</head>
+
+<body>
+    <p>I am not change yet</p>
+    <button>Click me</button>
+    <script>
+        //Task 9: Add a click event Listener to a button that changes the text content of a paragraph
+        const btn = document.querySelector("button")
+        const p = document.querySelector("p")
+        btn.addEventListener("click", () => {
+            p.textContent = "I am cliked now"
+        })
+        //Task 10: Add a mouseover event listener to an element that changes its border color
+        p.addEventListener("mouseover", () => {
+            p.style.border = "2px solid red"
+        })
+    </script>
+</body>
+
+</html>

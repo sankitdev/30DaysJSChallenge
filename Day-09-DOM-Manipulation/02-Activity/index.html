@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 2:Creating and Appending Elements</title>
+</head>
+
+<body>
+    <ul>
+        <li>Already Added</li>
+    </ul>
+    <script>
+        //Task 3:Create a new div element with some text content and append it to the body
+        const div = document.createElement("div")
+        div.textContent = "I am created dynamically"
+        document.body.append(div)
+
+        //Task 4:Create a new li element and add it to an existing ul list
+        const ul = document.querySelector("ul")
+        const li = document.createElement("li")
+        li.textContent = "New added"
+        ul.append(li)
+
+    </script>
+</body>
+
+</html>
