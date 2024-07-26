@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Events</title>
+</head>
+
+<body>
+    <form id="myForm">
+        <label>Name:</label>
+        <input type="text" name="name" placeholder="Enter Name" autocomplete="username">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter Password" autocomplete="current-password">
+        <button type="submit">Submit</button>
+    </form>
+
+    <p>Nothing</p>
+    <select id="selectMenu">
+        <option value="Mango">Mango</option>
+        <option value="Grapes">Grapes</option>
+        <option value="Apple">Apple</option>
+    </select>
+    <script>
+        //Task 7: Add a submit event listener to a form that prevents the default submission and logs the form data to the console.
+
+        const form = document.querySelector("#myForm")
+        const select = document.querySelector("#selectMenu")
+        const p = document.querySelector("p")
+        form.addEventListener("submit", (e) => {
+            e.preventDefault()
+            const formData = new FormData(form)
+            // console.log(formData)
+            let dataObject = {}
+            formData.forEach((value, keys) => {
+                dataObject[keys] = value;
+            })
+            console.log(dataObject)
+        })
+
+        //Task 8: Add a change event listener to a select dropdown that displays the selelcted value in a paragraph.
+        select.addEventListener("change", () => {
+            p.textContent = select.value
+        })
+
+
+    </script>
+</body>
+
+</html>

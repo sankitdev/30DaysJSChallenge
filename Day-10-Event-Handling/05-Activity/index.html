@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation</title>
+</head>
+
+<body>
+    <ul>
+        <li>Mango</li>
+        <li>Jango</li>
+        <li>Tango</li>
+    </ul>
+    <script>
+        //Task 9:Add a click event listener to a list that log the text content of the clicked liste item using event delegation
+
+        //Task 10: Add a event listener to a parent element that listens for events from dynamically added child elements
+        const ul = document.querySelector("ul")
+        const li = document.querySelectorAll("li")
+        const newLi = document.createElement("li")
+        newLi.textContent = "newLi"
+        ul.append(newLi)
+        ul.addEventListener("click", (event) => {
+            if (event.target && event.target.nodeName === 'LI') {
+
+                console.log(event.target.textContent)
+            }
+        })
+        // li.forEach(val => {
+        //     val.addEventListener("click", () => {
+        //         console.log(val.textContent)
+        //     })
+        // })
+
+
+
+
+    </script>
+
+</body>
+
+</html>

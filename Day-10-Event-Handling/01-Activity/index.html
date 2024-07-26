@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Event Handling</title>
+    <style>
+        .active {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>I am a text original one.</p>
+    <button>Click me</button>
+    <img src="" alt="" class="active">
+    <button class="dbClick">Click Me Two times</button>
+    <script>
+        const p = document.querySelector("p")
+        const btn = document.querySelector("button")
+        const toggle = document.querySelector(".dbClick")
+        const img = document.querySelector("img")
+
+        //Task 1: Add a click event listener to a button that changes the text content of a paragraph.
+        btn.addEventListener("click", () => {
+            p.textContent = "Somebody have changed my original text"
+        })
+
+        //Task 2: Add a double-click event listener to an image that toggles its visibility.
+        toggle.addEventListener("dblclick", () => {
+            img.classList.toggle("active")
+        })
+
+    </script>
+</body>
+
+</html>

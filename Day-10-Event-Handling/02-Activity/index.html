@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Events</title>
+</head>
+
+<body>
+    <div>Hello There</div>
+    <script>
+        const div = document.querySelector("div")
+        //Task 3: Add a mouseover event listener to an element that changes it background color.
+        div.addEventListener("mouseenter", () => {
+            div.style.backgroundColor = "yellow"
+        })
+        //Task 4:Add a mouseout event listener to an element that resets its background color.
+        div.addEventListener("mouseout", () => {
+            div.style.backgroundColor = ""
+        })
+    </script>
+</body>
+
+</html>
