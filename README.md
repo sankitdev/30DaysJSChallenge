@@ -9,7 +9,7 @@ This repository contains my solutions and code snippets for the 30-day JavaScrip
 ## Contact Me
 
 - GitHub: [sankitdev](https://github.com/sankitdev)
-- LinkedIn: [Arindal Char](https://www.linkedin.com/in/sankitdev)
+- LinkedIn: [sankitdev](https://www.linkedin.com/in/sankitdev)
 
 ## Contributing
 
