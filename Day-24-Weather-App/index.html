@@ -5,13 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="weather.jpg" type="image/x-icon">
     <title>Weather App</title>
 </head>
 
 <body>
-    <div class="main">
-        <input type="search" name="search" id="search">
+    <div class="wrapper">
+        <div class="main">
+            <div class="SearchArea">
+                <input type="search" name="search" id="search" placeholder="Type City Name">
+                <button>Search</button>
+            </div>
+            <div class="current-weather">
+                <div class="p">
+                    <p id="getTime"></p>
+                </div>
+                <!--This contains current weather-->
+            </div>
+            <div class="weather-forecast">
+                <!--This contains 5 Day Forecast-->
+            </div>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 
