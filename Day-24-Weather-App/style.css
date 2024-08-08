@@ -24,6 +24,7 @@ body {
   min-height: 100px;
   background-color: rgba(84, 147, 241);
   border-radius: 8px;
+  transition: all 0.5s ease-in-out;
 }
 .SearchArea {
   text-align: center;
@@ -69,16 +70,16 @@ button:active {
 }
 
 .current-weather {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   display: grid;
-  grid-template-columns: 170px 120px;
-  grid-template-rows: repeat(2, minmax(50px, auto));
+  /* grid-template-columns: 170px 120px;
+  grid-template-rows: repeat(2, minmax(50px, auto)); */
 }
 .currTime {
   align-self: center;
   padding-left: 10px;
+  margin-bottom: 10px;
 }
-
 .temp {
   grid-row: 2/3;
 }
@@ -86,7 +87,6 @@ button:active {
   grid-row: 2/3;
   padding: 5px;
 }
-
 span {
   position: relative;
   bottom: 1rem;
@@ -94,6 +94,40 @@ span {
   font-weight: 500;
 }
 p {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1rem;
+  /* display: inline-block; */
+}
+#head {
+  padding: 0.8rem 0;
+  font-weight: 600;
+}
+
+.inputVal {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+#check {
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.weather-forecast {
+  min-width: max-content;
+  min-height: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#detail {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  margin: 10px 0;
 }
