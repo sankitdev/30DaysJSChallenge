@@ -97,29 +97,29 @@ button {
   justify-content: center;
   align-items: center;
 }
-.popup {
+.moreInfo {
+  border: 2px solid red;
   padding: 10px 0;
   position: relative;
-  background-color: white;
+  width: 90%;
   height: 90%;
-  color: rgb(0, 0, 0);
 }
 
 .popupContainer.show {
   visibility: visible;
 }
-.popup i {
+.moreInfo i {
   position: absolute;
   right: 10px;
   cursor: pointer;
 }
 
-.popup p,
+.moreInfo p,
 span {
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   line-height: 1px;
 }
 
-.popup img {
+.moreInfo img {
   width: 150px;
 }
