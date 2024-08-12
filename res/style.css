@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: url("wave-haikei.svg") no-repeat center center;
+  color: white;
+  font-family: Poppins;
+}
+
+.main {
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  width: 40%;
+  min-height: 60px;
+  margin: 0.2rem;
+  border: 2px solid #0066ff;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+}
+
+p {
+  cursor: pointer;
+  padding: 1rem;
+  text-align: center;
+}

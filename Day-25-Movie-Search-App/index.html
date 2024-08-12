@@ -4,11 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     <title>Movie Search App</title>
 </head>
 
 <body>
-
+    <div class="main">
+        <nav class="flex">
+            <i class="ri-moon-line" id="toggle"></i>
+            <p>AnimeX</p>
+            <i class="ri-search-2-line" id="searchIcon"></i>
+        </nav>
+        <input type="search" name="search" id="search" placeholder="Search Movies....">
+        <div class="container">
+            <!--Movie will be displayed here-->
+        </div>
+        <div class="popupContainer">
+            <div class="popup">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
