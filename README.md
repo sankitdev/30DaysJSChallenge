@@ -8,6 +8,9 @@ This repository is a part of my journey through the **30 Days of JavaScript Chal
 
 Here, you'll find my daily solutions, code snippets, and insights as I tackle the JavaScript challenge.
 
+## Contribution
+
+Contributions are Welcome! Feel free to submit a pull request. If the bug is valid, I'll be happy to merge it.
 ## Let's Connect! 🤝
 
 - **GitHub:** [sankitdev](https://github.com/sankitdev)  
