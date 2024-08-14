@@ -22,7 +22,7 @@ night.addEventListener("click", () => {
 });
 //
 function fetchMovie() {
-  fetch(`http://www.omdbapi.com/?s=${search.value}&apikey=${API}`)
+  fetch(`https://www.omdbapi.com/?s=${search.value}&apikey=${API}`)
     .then((res) => res.json())
     .then((data) => {
       if (data.Response === "True") {
