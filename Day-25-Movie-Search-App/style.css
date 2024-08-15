@@ -20,9 +20,10 @@ body.light-mode {
 }
 
 nav {
-  /* border: 2px solid red; */
+  /* position: sticky;
+  top: 0; */
   height: 3rem;
-  /* position: relative; */
+  z-index: 5;
 }
 .flex {
   display: flex;
@@ -51,11 +52,12 @@ nav {
   opacity: 1;
 }
 .container {
-  /* border: 2px solid red; */
+  padding: 0 1rem;
   margin-top: 10px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 10px;
 }
 
 .container img {
@@ -73,18 +75,18 @@ p {
   padding: 10px 0;
 }
 .movie-detail {
-  margin: 0 auto;
   border: 2px solid rgba(215, 215, 215, 0.2);
   border-radius: 10px;
   width: 180px;
   padding-bottom: 1rem;
+  margin-bottom: 10px;
 }
 button {
   padding: 2px 8px;
   cursor: pointer;
 }
 .popupContainer {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -98,11 +100,12 @@ button {
   align-items: center;
 }
 .moreInfo {
-  border: 2px solid red;
-  padding: 10px 0;
+  /* border: 2px solid red; */
+  padding: 10px;
   position: relative;
+  background-color: white;
+  color: black;
   width: 90%;
-  height: 90%;
 }
 
 .popupContainer.show {
@@ -113,11 +116,24 @@ button {
   right: 10px;
   cursor: pointer;
 }
+.moreInfo i:hover {
+  background-color: black;
+  color: white;
+}
 
-.moreInfo p,
-span {
+.moreInfo p {
+  /* border: 2px solid red; */
   font-size: 0.8rem;
+  margin: 5px 0;
   line-height: 1px;
+}
+
+.moreInfo h6 {
+  font-size: 0.7rem;
+}
+.moreInfo h1 {
+  font-size: 1.5rem;
+  padding-top: 10px;
 }
 
 .moreInfo img {

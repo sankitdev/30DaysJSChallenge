@@ -1,86 +1,96 @@
 const API = "41357241";
+const button = document.querySelector("button");
 const searchIcon = document.querySelector("#searchIcon");
-const search = document.querySelector("#search");
-const container = document.querySelector(".container");
-const popupContainer = document.querySelector(".popupContainer");
+const toggle = document.querySelector("#toggle");
 
+//1. Toggle sun moon ✅
+toggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+  toggle.classList.toggle("ri-sun-line");
+  toggle.classList.toggle("ri-moon-line");
+});
+
+// 2. Toggle seachICon ✅
+searchIcon.addEventListener("click", () => {
+  document.querySelector("#search").classList.toggle("show");
+});
+
+// 3.When click Enter it should seach by fetch ✅
 document.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     fetchMovie();
   }
 });
 
-searchIcon.addEventListener("click", () => {
-  search.classList.toggle("show");
-});
+async function fetchMovie() {
+  const response = await fetch(
+    `https://www.omdbapi.com/?s=${search.value}&apikey=${API}`
+  );
+  const data = await response.json();
+  const imdbId = data.Search.map((item) => item.imdbID);
 
-const night = document.querySelector("#toggle");
-night.addEventListener("click", () => {
-  document.body.classList.toggle("light-mode");
-  night.classList.toggle("ri-moon-line");
-  night.classList.toggle("ri-sun-line");
-});
-//
-function fetchMovie() {
-  fetch(`https://www.omdbapi.com/?s=${search.value}&apikey=${API}`)
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.Response === "True") {
-        console.log(data);
-        populateData(data);
-      } else {
-        console.log("Not able to fetch Movies", data.Error);
-      }
+  const arr = await Promise.all(
+    imdbId.map(async (id) => {
+      const response = await fetch(
+        `https://www.omdbapi.com/?i=${id}&apikey=${API}`
+      );
+      return response.json();
     })
-    .catch((err) => console.error(err));
+  );
+  console.log(arr);
+  populateData(arr);
 }
 
+// 4.after fetching data populate it to container class ✅
 function populateData(data) {
-  container.innerHTML = data.Search.map(
-    (movie) => `
-      <div class="movie-detail">
-        <img src="${movie.Poster}" alt="${movie.Title}">
-        <p>⭐${movie.imdbRating || "N/A"}</p>
-        <h1>${movie.Title}</h1>
-        <p>Year: ${movie.Year}</p>
-        <button>More Info</button>
-      </div>
-    `
-  ).join("");
+  const container = document.querySelector(".container");
+  data.forEach(
+    (movie) =>
+      (container.innerHTML += `<div class="movie-detail">
+    <img src="${movie.Poster}" alt="${movie.Title}">
+    <p>⭐${movie.imdbRating || "N/A"}</p>
+    <h1>${movie.Title}</h1>
+    <p>${movie.Year}</p>
+    <button>More Info</button>
+     </div>`)
+  );
 
+  // 5. On Click on moreInfo show popup data ✅
   container.addEventListener("click", (event) => {
     if (event.target.tagName === "BUTTON") {
       popup(
-        data.Search.find(
+        data.find(
           (movie) =>
-            movie.Title === event.target.parentNode.children[2].textContent
+            movie.Title ===
+            event.target.previousElementSibling.previousElementSibling
+              .textContent
         )
       );
-      popupContainer.classList.add("show");
+      document.querySelector(".popupContainer").classList.add("show");
     }
   });
 }
 
 function popup(movie) {
   const popupData = document.querySelector(".moreInfo");
-  popupData.innerHTML = "";
   popupData.innerHTML = `
-      <i class="ri-close-large-line" id="test"></i>
-      <img src="${movie.Poster}" alt="${movie.Title}">
-      <h1>${movie.Title}</h1>
-      <p>Year: ${movie.Year}</p>
-      <span>${movie.Runtime}</span>
-      <span>${movie.Rated}</span>
-      <p>Released: ${movie.Released}</p>
-      <p>Genre: ${movie.Genre}</p>
-      <p>⭐${movie.imdbRating}/10</p>
-      <h6>${movie.Plot}</h6>
-      <p>Director: ${movie.Director}</p>
-      <p>Actors: ${movie.Actors}</p>
-      <p>Writer: ${movie.Writer}</p>
-      <p>Awards: ${movie.Awards}</p>`;
+  <i class="ri-close-large-line" id="test"></i>
+  <img src="${movie.Poster}" alt="${movie.Title}">
+  <h1>${movie.Title}</h1>
+  <p>Year: ${movie.Year}</p>
+  <span>${movie.Runtime}</span>
+  <span>${movie.Rated}</span>
+  <p>Released: ${movie.Released}</p>
+  <p>Genre: ${movie.Genre}</p>
+  <p>⭐${movie.imdbRating}/10</p>
+  <h6>${movie.Plot}</h6>
+  <p>Director: ${movie.Director}</p>
+  <p>Actors: ${movie.Actors}</p>
+  <p>Writer: ${movie.Writer}</p>
+  <p>Awards: ${movie.Awards}</p>`;
 
+  // 6.ON click of cross close popup data ✅
   document.querySelector("#test").addEventListener("click", () => {
-    popupContainer.classList.remove("show");
+    document.querySelector(".popupContainer").classList.remove("show");
   });
 }
