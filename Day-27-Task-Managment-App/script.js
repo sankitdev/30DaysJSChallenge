@@ -19,7 +19,6 @@ button.addEventListener("click", (event) => {
   input.forEach((input) => {
     task[input.name] = input.value;
   });
-
   arr.push(task);
   form.reset();
   form.classList.toggle("collapse");
@@ -28,15 +27,36 @@ button.addEventListener("click", (event) => {
 
 function displayData(task) {
   formData.innerHTML += `
-  <span>...</span>
+  <div class="taskItem">
+  <span class="menu-icon">...</span>
+   <div class="edit">
+   <button class="editBtn">Edit</button>
+   <button class="deleteBtn">Delete</button>
+   </div>
   <div class="tasks">
     <p>Title: ${task.title || "Not Provided"}</p>
   <p>Description: ${task.description || "Not Provided"}</p>
   <p>Date of Creation:${task.date || "Not Provided"}</p>
   </div>
+  </div>
   `;
-  const span = document.querySelector("span");
-  span.addEventListener("click", () => {
-    document.querySelector(".edit").classList.toggle("show");
-  });
 }
+
+formData.addEventListener("click", (event) => {
+  if (event.target.classList.contains("menu-icon")) {
+    const editMenu = event.target.nextElementSibling;
+    editMenu.classList.toggle("show");
+  }
+  if (event.target.classList.contains("editBtn")) {
+    const taskItem = event.target.closest(".taskItem");
+    const getValues = taskItem.querySelectorAll(".tasks p");
+    getValues.forEach((item) => console.log(item));
+  }
+  if (event.target.classList.contains("deleteBtn")) {
+    const confirmDelete = confirm("Are you sure you want to delete?");
+    if (confirmDelete) {
+      const taskItem = event.target.closest(".taskItem");
+      taskItem.remove();
+    }
+  }
+});
