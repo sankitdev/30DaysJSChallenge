@@ -12,12 +12,17 @@ toggle.addEventListener("click", () => {
 
 // 2. Toggle seachICon ✅
 searchIcon.addEventListener("click", () => {
-  document.querySelector("#search").classList.toggle("show");
+  document.querySelector(".SearchBox").classList.toggle("show");
 });
 
 // 3.When click Enter it should seach by fetch ✅
+const searchBtn = document.querySelector("#searchBtn");
+
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
+  if (
+    event.key === "Enter" ||
+    (event.type = "click" && event.target === searchBtn)
+  ) {
     fetchMovie();
   }
 });
@@ -28,7 +33,6 @@ async function fetchMovie() {
   );
   const data = await response.json();
   const imdbId = data.Search.map((item) => item.imdbID);
-
   const arr = await Promise.all(
     imdbId.map(async (id) => {
       const response = await fetch(

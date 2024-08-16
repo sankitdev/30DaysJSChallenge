@@ -20,8 +20,6 @@ body.light-mode {
 }
 
 nav {
-  /* position: sticky;
-  top: 0; */
   height: 3rem;
   z-index: 5;
 }
@@ -33,23 +31,45 @@ nav {
 .main {
   text-align: center;
 }
+
 #search {
-  width: 80%;
-  margin-top: 1rem;
+  width: 60%;
   height: 2rem;
-  opacity: 0;
-  transform: translateY(-80px);
   transition: all 0.5s;
+  margin-top: 1rem;
 }
 
 #search[placeholder] {
   font-style: italic;
   padding: 10px;
 }
+.SearchBox button {
+  padding: 0.5rem 1rem;
+  background-color: black;
+  color: white;
+  outline: none;
+  border: 2px solid white;
+  border-radius: 5px;
+  transition: transform 0.5s;
+}
 
-#search.show {
+.SearchBox button:active {
+  transform: translateY(5px);
+}
+
+.SearchBox {
+  /* border: 2px solid red; */
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.SearchBox.show {
   transform: translateY(0px);
+  visibility: visible;
   opacity: 1;
+  height: auto;
 }
 .container {
   padding: 0 1rem;
