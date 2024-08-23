@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html,
 body {
   font-family: Poppins;
@@ -10,7 +11,7 @@ body {
   height: 100%;
   background: linear-gradient(204deg, #6ac2c4, #ee661c, #35b7f5, #f70ddb);
   background-size: 240% 240%;
-  animation: gradient-animation 20s ease infinite;
+  animation: gradient-animation 10s ease infinite;
   user-select: none;
 }
 
@@ -26,32 +27,13 @@ body {
   }
 }
 
-h1 {
-  display: inline-block;
-  font-size: 1.8rem;
-  width: 90%;
-  font-weight: 500;
-  padding: 0.8rem;
-  letter-spacing: -1px;
-  line-height: 2rem;
-}
-i {
-  font-size: 1.5rem;
-}
-form.collapse {
-  visibility: hidden;
-  height: 0;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  transition: height 0.3s ease;
-}
-
 .flex {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+/* Styling for Main */
 .main {
   height: 100%;
   position: relative;
@@ -67,12 +49,40 @@ form.collapse {
   transform: translate(-50%, -50%);
   border-radius: 1rem;
 }
+
+/* Header Section */
+h1 {
+  display: inline-block;
+  width: 88%;
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding: 0.8rem;
+  letter-spacing: -1px;
+  line-height: 2rem;
+}
+
+i {
+  font-size: 1.5rem;
+}
+
+/* Form Section Styling */
+
 form {
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 5px 20px;
 }
+
+form.collapse {
+  visibility: hidden;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
 label {
   padding: 5px;
   font-size: 1.1rem;
@@ -81,6 +91,9 @@ input {
   padding: 8px;
   outline: none;
 }
+
+/* Button Section Styling */
+
 form button {
   outline: none;
   margin: 1rem 0;
@@ -101,33 +114,45 @@ button:hover {
 input::placeholder {
   font-style: italic;
 }
-.formData {
-  padding: 0.6rem 1rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  /* border: 2px solid red; */
-}
+
+/* Task list generate Styling */
+
 .tasks {
-  margin: 10px;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1rem 1rem 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .taskItem {
-  /* border: 2px solid red; */
-  position: relative;
-  margin-bottom: 1rem;
+  padding-left: 1rem;
 }
 
-span {
-  position: absolute;
-  right: 10px;
+.icons {
+  padding-right: 1rem;
 }
-.edit {
-  position: absolute;
-  top: 2rem;
-  right: 0;
-  width: 50px;
-  height: 50px;
-  z-index: 1;
-  display: none;
+
+.icons i {
+  cursor: pointer;
+  margin-left: 1rem;
 }
-.edit.show {
-  display: block;
+
+.ri-delete-bin-fill {
+  color: red;
+}
+
+h2 {
+  padding: 5px 0 2px 0;
+  font-weight: normal;
+  font-size: 1.3rem;
+}
+
+.line-break {
+  height: 1px;
+  width: 50%;
+  background-color: grey;
+}
+p {
+  padding: 2px 0;
 }
