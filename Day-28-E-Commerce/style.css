@@ -1,4 +1,7 @@
-* {
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,4 +10,159 @@ html,
 body {
   width: 100%;
   height: 100%;
+  background-color: black;
+  color: white;
+  user-select: none;
+  font-family: poppins;
+  scroll-behavior: smooth;
+}
+
+.main {
+  height: inherit;
+  width: inherit;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+ul {
+  list-style: none;
+  display: flex;
+}
+h1 {
+  font-family: "Dancing Script";
+}
+.second-head {
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: 400;
+}
+.nav-right a {
+  text-decoration: none;
+  color: white;
+  padding: 0 1rem;
+}
+
+.swiper {
+  margin-top: 1rem;
+  width: 85%;
+  height: 400px;
+  border-radius: 10px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  /* margin: 1rem; */
+}
+
+.product-card {
+  height: 400px;
+  width: 300px;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 2px solid white;
+}
+
+.product-card img {
+  display: inline-block;
+  width: 100%;
+  height: 45%;
+}
+
+.product-des {
+  padding: 0.5rem 1rem;
+}
+
+.product-des h2 {
+  padding-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+.product-des p {
+  line-height: 1rem;
+  font-size: 0.8rem;
+}
+
+.product-des h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.product-card button {
+  margin: auto;
+  display: block;
+  padding: 0.5rem;
+  font-family: poppins;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  outline: none;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.product-card button:hover {
+  background-color: white;
+  color: black;
+  scale: 1.1;
+}
+.product-card button:active {
+  transform: translateY(2px);
+}
+
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 650px) {
+  body {
+    background-attachment: fixed;
+  }
+  .hamburger {
+    display: block;
+    font-size: 1.5rem;
+  }
+  ul {
+    display: block;
+    padding: 1rem 0;
+  }
+
+  ul li {
+    padding: 0.5rem;
+  }
+  .nav-right {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 50%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    font-size: 1.5rem;
+    transition: all 0.5s;
+  }
+  li:hover {
+    background-color: black;
+    border: 2px solid white;
+  }
+  .nav-right.show {
+    display: block;
+  }
 }
