@@ -2,6 +2,7 @@ const API = "41357241";
 const button = document.querySelector("button");
 const searchIcon = document.querySelector("#searchIcon");
 const toggle = document.querySelector("#toggle");
+const search = document.querySelector("#search");
 
 //1. Toggle sun moon ✅
 toggle.addEventListener("click", () => {
@@ -24,25 +25,31 @@ document.addEventListener("keydown", (event) => {
     (event.type = "click" && event.target === searchBtn)
   ) {
     fetchMovie();
+    search.value = "";
   }
 });
 
 async function fetchMovie() {
-  const response = await fetch(
-    `https://www.omdbapi.com/?s=${search.value}&apikey=${API}`
-  );
-  const data = await response.json();
-  const imdbId = data.Search.map((item) => item.imdbID);
-  const arr = await Promise.all(
-    imdbId.map(async (id) => {
-      const response = await fetch(
-        `https://www.omdbapi.com/?i=${id}&apikey=${API}`
-      );
-      return response.json();
-    })
-  );
-  console.log(arr);
-  populateData(arr);
+  showShimmer();
+  try {
+    const response = await fetch(
+      `https://www.omdbapi.com/?s=${search.value}&apikey=${API}`
+    );
+    const data = await response.json();
+    const imdbId = data.Search.map((item) => item.imdbID);
+    const arr = await Promise.all(
+      imdbId.map(async (id) => {
+        const response = await fetch(
+          `https://www.omdbapi.com/?i=${id}&apikey=${API}`
+        );
+        return response.json();
+      })
+    );
+    hideShimmer();
+    populateData(arr);
+  } catch (error) {
+    console.error("Error aya", error);
+  }
 }
 
 // 4.after fetching data populate it to container class ✅
@@ -97,4 +104,37 @@ function popup(movie) {
   document.querySelector("#test").addEventListener("click", () => {
     document.querySelector(".popupContainer").classList.remove("show");
   });
+}
+
+function showShimmer() {
+  const container = document.querySelector(".container");
+  container.innerHTML = `
+    <div class="shimmer-container">
+      <div class="shimmer-movie-detail">
+        <div class="shimmer-image"></div>
+        <div class="shimmer-rating"></div>
+        <div class="shimmer-title"></div>
+        <div class="shimmer-year"></div>
+        <div class="shimmer-button"></div>
+      </div>
+      <div class="shimmer-movie-detail">
+        <div class="shimmer-image"></div>
+        <div class="shimmer-rating"></div>
+        <div class="shimmer-title"></div>
+        <div class="shimmer-year"></div>
+        <div class="shimmer-button"></div>
+      </div>
+      <div class="shimmer-movie-detail">
+        <div class="shimmer-image"></div>
+        <div class="shimmer-rating"></div>
+        <div class="shimmer-title"></div>
+        <div class="shimmer-year"></div>
+        <div class="shimmer-button"></div>
+      </div>
+    </div>`;
+}
+
+function hideShimmer() {
+  const container = document.querySelector(".container");
+  container.innerHTML = ""; // Clear shimmer effect
 }
