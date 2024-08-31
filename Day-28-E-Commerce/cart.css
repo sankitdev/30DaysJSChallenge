@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  user-select: none;
+  font-family: poppins;
+  scroll-behavior: smooth;
+}
+
+#main {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+#cart {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.cart-header,
+.cart-item-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-item {
+  width: 60%;
+}
+
+.cart-price,
+.cart-quantity,
+.cart-total {
+  width: 25%;
+  text-align: center;
+}
+
+input[type="number"] {
+  text-align: center;
+  width: 3rem;
+  height: 1.5rem;
+  font-size: 1.2rem;
+}
+
+i {
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+#total {
+  display: flex;
+  justify-content: right;
+  padding: 1rem;
+}
+
+#total h2 {
+  padding-right: 2rem;
+}
+
+#total input {
+  height: 2rem;
+  width: 100px;
+  color: black;
+  font-size: 1.1rem;
+}
+
+button {
+  display: block;
+  padding: 1rem;
+  margin: auto;
+  background-color: greenyellow;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: green;
+  color: white;
+}

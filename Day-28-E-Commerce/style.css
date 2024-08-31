@@ -129,6 +129,31 @@ img {
 .hamburger {
   display: none;
 }
+.cart {
+  cursor: pointer;
+}
+#popup {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  /* width: 100px; */
+  font-size: 1.2rem;
+  background-color: green;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  z-index: 5;
+  transition: all 0.5s;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.check {
+  padding-right: 0.2rem;
+}
+#popup.show {
+  opacity: 1;
+}
 
 @media (max-width: 650px) {
   body {
